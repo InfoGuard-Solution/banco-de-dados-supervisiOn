@@ -10,7 +10,7 @@ nome VARCHAR(100),
 cnpj CHAR(14)
 );
 
-CREATE TABLE usuario(
+CREATE TABLE tbUsuario(
 
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 fk_idOrganizacao INT,
