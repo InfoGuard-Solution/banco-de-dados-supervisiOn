@@ -2,7 +2,6 @@ CREATE DATABASE SuperVisiON;
 
 USE SuperVisiON;
 
-
 CREATE TABLE tbOrganizacao(
 
 idOrganizacao INT PRIMARY KEY AUTO_INCREMENT,
@@ -12,10 +11,9 @@ cnpj CHAR(14)
 
 CREATE TABLE tbUsuario(
 
-idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+cpf CHAR(11) PRIMARY KEY ,
 fk_idOrganizacao INT,
 nome VARCHAR(100),
-cpf CHAR(11),
 senha VARCHAR(20),
 telefone CHAR(11),
 cargo VARCHAR(50),
