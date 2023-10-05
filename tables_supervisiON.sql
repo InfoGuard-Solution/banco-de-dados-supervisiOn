@@ -4,34 +4,33 @@ USE SuperVisiON;
 
 CREATE TABLE tbOrganizacao(
 
-idOrganizacao INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(100),
-cnpj CHAR(14)
+cnpj CHAR(14) PRIMARY KEY,
+nome VARCHAR(100)
 );
-
+	
 CREATE TABLE tbUsuario(
 
 cpf CHAR(11) PRIMARY KEY ,
-fk_idOrganizacao INT,
+fk_organizacao CHAR(14),
 nome VARCHAR(100),
 senha VARCHAR(20),
 telefone CHAR(11),
 cargo VARCHAR(50),
 statusServico VARCHAR(45),
-FOREIGN KEY (fk_idOrganizacao) REFERENCES tbOrganizacao(idOrganizacao)
+FOREIGN KEY (fk_organizacao) REFERENCES tbOrganizacao(cnpj)
 );
-
+	
 CREATE TABLE tbEvento(
 
 idEvento INT PRIMARY KEY AUTO_INCREMENT,
-fk_idOrganizacao INT,
+fk_organizacao CHAR(14),
 nome VARCHAR(100),
-data DATE,
 time1 VARCHAR(50),
 time2 VARCHAR(50),
-FOREIGN KEY (fk_idOrganizacao) REFERENCES tbOrganizacao(idOrganizacao)
+status VARCHAR(20),
+FOREIGN KEY (fk_organizacao) REFERENCES tbOrganizacao(cnpj)
 );
-
+    
 CREATE TABLE tbComputadores(
 
 idComputador INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,3 +63,7 @@ disco INT,
 ram INT,
 FOREIGN KEY (fk_idComputador) REFERENCES tbComputadores(idComputador)
 );
+
+create user 'superOn'@'localhost' identified by '123';
+grant all privileges on SuperVisiON.* to 'superOn'@'localhost';
+flush privileges;
