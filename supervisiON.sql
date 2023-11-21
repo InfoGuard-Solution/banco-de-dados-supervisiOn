@@ -1,4 +1,4 @@
-	-- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
+-- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
 CREATE DATABASE SuperVisiON;
 
 USE SuperVisiON;
@@ -66,7 +66,6 @@ cpuFreq INT,
 gpuTemp INT,
 gpuFreq INT,
 redeLatencia INT,
-redePacote INT,
 disco INT,
 ram INT,
 FOREIGN KEY (fk_idComputador) REFERENCES tbComputador(idComputador)
